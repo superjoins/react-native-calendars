@@ -15,7 +15,7 @@ import ReservationList from './reservation-list';
 const HEADER_HEIGHT = 104;
 const KNOB_HEIGHT = 24;
 
-//Fallback for react-native-web or when RN version is < 0.44
+// Fallback for react-native-web or when RN version is < 0.44
 const {Text, View, Dimensions, Animated, ViewPropTypes} = ReactNative;
 const viewPropTypes =
   typeof document !== 'undefined' ? PropTypes.shape({style: PropTypes.object}) : ViewPropTypes || View.propTypes;
@@ -46,11 +46,11 @@ export default class AgendaView extends Component {
     /** callback that gets called on day press */
     onDayPress: PropTypes.func,
     /** callback that gets called when day changes while scrolling agenda list */
-    onDaychange: PropTypes.func, //TODO: Should be renamed 'onDayChange'
+    onDaychange: PropTypes.func, // TODO: Should be renamed 'onDayChange'
     /** specify how agenda knob should look like */
-    renderKnob: PropTypes.func, 
-    /** initially selected day */ 
-    selected: PropTypes.any, //TODO: Should be renamed 'selectedDay'
+    renderKnob: PropTypes.func,
+    /** initially selected day */
+    selected: PropTypes.any, // TODO: Should be renamed 'selectedDay'
     /** Hide knob button. Default = false */
     hideKnob: PropTypes.bool
   };
@@ -247,7 +247,7 @@ export default class AgendaView extends Component {
     this.onTouchEnd();
     const currentY = e.nativeEvent.contentOffset.y;
     this.knobTracker.add(currentY);
-    const projectedY = currentY + this.knobTracker.estimateSpeed() * 250; /*ms*/
+    const projectedY = currentY + this.knobTracker.estimateSpeed() * 250; /* ms */
     const maxY = this.initialScrollPadPosition();
     const snapY = projectedY > maxY / 2 ? maxY : 0;
     this.setScrollPadPosition(snapY, true);
@@ -402,7 +402,7 @@ export default class AgendaView extends Component {
           {this.renderKnob()}
         </Animated.View>
         <Animated.View style={weekdaysStyle}>
-          {showWeekNumbers && <Text allowFontScaling={false} style={this.style.weekday} numberOfLines={1}></Text>}
+          {showWeekNumbers && <Text allowFontScaling={false} style={this.style.weekday} numberOfLines={1} />}
           {weekDaysNames.map((day, index) => (
             <Text allowFontScaling={false} key={day + index} style={this.style.weekday} numberOfLines={1}>
               {day}

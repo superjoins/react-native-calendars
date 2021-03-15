@@ -13,8 +13,9 @@ export default function styleConstructor(theme = {}) {
       flex: 1
     },
     dayNum: {
-      fontSize: 28,
-      fontWeight: '200',
+      fontSize: appStyle.agendaDayNumFontSize,
+      // fontWeight: '200',
+      lineHeight: 29,
       fontFamily: appStyle.textDayFontFamily,
       color: appStyle.agendaDayNumColor
     },
@@ -29,14 +30,18 @@ export default function styleConstructor(theme = {}) {
     day: {
       width: 63,
       alignItems: 'center',
-      justifyContent: 'flex-start',
-      marginTop: 32
+      justifyContent: 'center'
+      // marginTop: 32
     },
     today: {
       color: appStyle.agendaTodayColor
     },
     indicator: {
       marginTop: 80
+    },
+    divider: {
+      borderBottomWidth: 1,
+      borderColor: '#f0f0f0'
     },
     ...(theme[STYLESHEET_ID] || {})
   });
