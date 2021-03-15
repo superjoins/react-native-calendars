@@ -15,26 +15,26 @@ class ReservationList extends Component {
     ...Reservation.propTypes,
     /** the list of items that have to be displayed in agenda. If you want to render item as empty date
     the value of date key kas to be an empty array []. If there exists no value for date key it is
-    considered that the date in question is not yet loaded */ 
+    considered that the date in question is not yet loaded */
     reservations: PropTypes.object,
     selectedDay: PropTypes.instanceOf(XDate),
     topDay: PropTypes.instanceOf(XDate),
     /** Show items only for the selected day. Default = false */
     showOnlySelectedDayItems: PropTypes.bool,
-    /** callback that gets called when day changes while scrolling agenda list */ 
+    /** callback that gets called when day changes while scrolling agenda list */
     onDayChange: PropTypes.func,
     /** specify what should be rendered instead of ActivityIndicator */
     renderEmptyData: PropTypes.func,
 
     /** onScroll ListView event */
     onScroll: PropTypes.func,
-    /** Called when the user begins dragging the agenda list **/
+    /** Called when the user begins dragging the agenda list * */
     onScrollBeginDrag: PropTypes.func,
-    /** Called when the user stops dragging the agenda list **/
+    /** Called when the user stops dragging the agenda list * */
     onScrollEndDrag: PropTypes.func,
-    /** Called when the momentum scroll starts for the agenda list **/
+    /** Called when the momentum scroll starts for the agenda list * */
     onMomentumScrollBegin: PropTypes.func,
-    /** Called when the momentum scroll stops for the agenda list **/
+    /** Called when the momentum scroll stops for the agenda list * */
     onMomentumScrollEnd: PropTypes.func,
     /** A RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView */
     refreshControl: PropTypes.element,
@@ -114,16 +114,16 @@ class ReservationList extends Component {
           day
         };
       });
-    } else if (res) {
+    }
+    if (res) {
       return [
         {
           date: iterator.clone(),
           day
         }
       ];
-    } else {
-      return false;
     }
+    return false;
   }
 
   getReservations(props) {
@@ -187,7 +187,7 @@ class ReservationList extends Component {
     const row = this.state.reservations[topRow];
     if (!row) return;
 
-    const day = row.day;
+    const {day} = row;
     const sameDate = dateutils.sameDate(day, this.selectedDay);
     if (!sameDate && this.scrollOver) {
       this.selectedDay = day.clone();
@@ -214,6 +214,7 @@ class ReservationList extends Component {
     return (
       <View onLayout={this.onRowLayoutChange.bind(this, index)}>
         <Reservation {...reservationProps} item={item} />
+        <View style={this.style.divider} />
       </View>
     );
   };
