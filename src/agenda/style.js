@@ -45,7 +45,7 @@ export default function styleConstructor(theme = {}) {
     },
     divider: {
       borderBottomWidth: 1,
-      borderColor: 'red'
+      borderColor: '#f0f0f0'
     },
     ...(theme[STYLESHEET_ID] || {})
   });
