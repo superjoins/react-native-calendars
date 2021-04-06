@@ -41,11 +41,11 @@ export default function styleConstructor(theme = {}) {
       marginTop: 104,
       backgroundColor: appStyle.backgroundColor,
       borderTopWidth: 1,
-      borderColor: '#f0f0f0'
+      borderColor: appStyle.reservationsBorderColor
     },
     divider: {
       borderBottomWidth: 1,
-      borderColor: appStyle.dividerColor
+      borderColor: '#f0f0f0'
     },
     ...(theme[STYLESHEET_ID] || {})
   });
