@@ -41,7 +41,7 @@ export default function styleConstructor(theme = {}) {
     },
     divider: {
       borderBottomWidth: 1,
-      borderColor: '#f0f0f0'
+      borderColor: appStyle.reservationListSeparator
     },
     ...(theme[STYLESHEET_ID] || {})
   });
